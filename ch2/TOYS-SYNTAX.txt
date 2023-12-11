@@ -1,0 +1,30 @@
+toplevel_expr   := expression
+
+表达式可以是一个二元表达式
+expression  := primary binoprhs
+
+基本表达式primary可以是标识符表达式、算术表达式或括号表达式
+primary := identifier_expr
+        := numeric_expr
+        := paran_expr
+
+标识符表达式identifier_expr是一个标识符identifier或是函数调用
+identifier_expr := identifier
+                := identifier '(' expr_list ')'
+
+参数列表expr_list要么为空，要么是逗号分隔的表达式列表
+expr_list   := ( empty )
+            := expression ( ',' expression )*
+
+算术表达式numeric_expr可以是一个数字常量
+numeric_expr    := number
+
+括号表达式
+paran_expr      := '(' expression ')'
+
+RHS二元运算是二元运算符喝表达式的组合
+binoprhs    := ( binoperator primary )*
+binoperator := '+'
+            := '-'
+            := '*'
+            := '/'
